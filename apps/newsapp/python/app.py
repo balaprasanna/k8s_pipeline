@@ -11,9 +11,7 @@ SOURCE_URL = "http://api.pnd.gs/v1/sources/"
 api = Blueprint('customEndpoints',__name__)
 
 # Configure PORT
-PORT = 5000 
-if len(sys.argv) > 1:
-    PORT = int(sys.argv[1])
+PORT = int( os.getenv("PORT", 5000) )
 
 # Create a flask APP object
 app = Flask(__name__)
@@ -67,8 +65,6 @@ def getsources():
     resp_data = get_news_source()
     resp_data = json.dumps(resp_data, indent=4)
     return sendSuccessResponse(resp_data)
-        
-
 
 # Registering Blueprints to /
 app.register_blueprint(api, url_prefix ='/api/' + API_VERSION)
