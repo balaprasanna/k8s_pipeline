@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+
+metadata:
+   name: newsapp-ingress-dst-rule
+   namespace: newsapp-ns
+
+spec:
+   host: newsapp-svc-python.newsapp-ns.svc.cluster.local
+   trafficPolicy:
+      loadBalancer:
+         simple: LEAST_CONN
+   subsets:
+      - name: NewsAppAppLeastConn
+        labels:
+           app: newsapp
+           lang: python

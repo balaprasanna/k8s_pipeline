@@ -1,29 +1,29 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: news-app-nodejs
-  namespace: news-app-ns
+  name: newsapp-nodejs
+  namespace: newsapp-ns
   labels:
-    app: news-app
+    app: newsapp
     lang: nodejs
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: news-app
+      app: newsapp
   template:
     metadata:
       labels:
-        app: news-app
+        app: newsapp
         lang: nodejs
     spec:
       containers:
-        - image: balanus/newsapp-nodejs:latest
-          name: news-app
+        - image: balanus/newsapp:nodejs-v1
+          name: newsapp
           env:
           - name: PORT
-            value: "5000"
+            value: "3000"
           ports:
-            - containerPort: 5000
-              name: news-app
+            - containerPort: 3000
+              name: newsapp
           imagePullPolicy: Always

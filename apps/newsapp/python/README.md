@@ -10,6 +10,8 @@ docker build -t balanus/newsapp:python-v1 .
 docker run -it -p 5000:5000 --rm balanus/newsapp:python-v1
 ```
 
-3. 
+3. Push the image
 ```
+docker login
+docker push balanus/newsapp:python-v1
 ```

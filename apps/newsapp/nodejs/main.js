@@ -1,10 +1,12 @@
 //Load require libs
 const express = require('express');
 var request = require('request');
-
+var os = require("os");
 
 //configure port
-const PORT = process.argv[2] || 5000;
+let PORT = process.env.PORT || "3000";
+PORT = parseInt(PORT)
+
 const APIVERSION = "v1"
 const SOURCE_URL = "http://api.pnd.gs/v1/sources/"
 //Create an instance of Express
@@ -15,7 +17,7 @@ app = express();
 app.get('/', (req, resp) => {
     resp.status(200).json({ 
         "status": "ok",
-        "hostname": process.env.host
+        "hostname": os.hostname()
     })
 })
 

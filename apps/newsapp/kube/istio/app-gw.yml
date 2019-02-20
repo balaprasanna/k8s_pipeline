@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+
+metadata:
+   name: newsapp-ingress
+   namespace: newsapp-ns
+
+spec:
+   selector:
+      istio: ingressgateway
+   servers:
+   - hosts:
+     - "*"
+     - newsapp.newsapp-ns.svc.cluster.local
+     port:
+        number: 80
+        protocol: HTTP
+        name: HTTP

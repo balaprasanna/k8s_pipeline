@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: newsapp-go
+  namespace: newsapp-ns
+  labels:
+    app: newsapp
+    lang: go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: newsapp
+  template:
+    metadata:
+      labels:
+        app: newsapp
+        lang: go
+    spec:
+      containers:
+        - image: balanus/newsapp:go-v1
+          name: newsapp
+          imagePullPolicy: Always
+          env:
+          - name: PORT
+            value: "8000"
+          ports:
+            - containerPort: 8000
+              name: newsapp

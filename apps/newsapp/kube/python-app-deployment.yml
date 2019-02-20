@@ -1,29 +1,29 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: news-app-go
-  namespace: news-app-ns
+  name: newsapp-python
+  namespace: newsapp-ns
   labels:
-    app: news-app
-    lang: go
+    app: newsapp
+    lang: python
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: news-app
+      app: newsapp
   template:
     metadata:
       labels:
-        app: news-app
-        lang: go
+        app: newsapp
+        lang: python
     spec:
       containers:
-        - image: balanus/newsapp-go:latest
-          name: news-app
+        - image: balanus/newsapp:python-v1
+          name: newsapp
           imagePullPolicy: Always
           env:
           - name: PORT
             value: "5000"
           ports:
             - containerPort: 5000
-              name: news-app
+              name: newsapp

@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: news-app-svc-python
-  namespace: news-app-ns
+  name: newsapp-svc-python
+  namespace: newsapp-ns
   labels:
-    app: news-app-svc
+    app: newsapp-svc
     lang: python
   
 spec:
@@ -12,7 +12,7 @@ spec:
   ports:
     - port: 80
       targetPort: 5000
-      protocol: TCP
+      #protocol: TCP
   selector:
-    app: news-app
+    app: newsapp
     lang: python
