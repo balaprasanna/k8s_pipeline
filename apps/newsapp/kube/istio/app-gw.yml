@@ -11,8 +11,9 @@ spec:
    servers:
    - hosts:
      - "*"
-     - newsapp.newsapp-ns.svc.cluster.local
+     # - newsapp-svc-python.newsapp-ns.svc.cluster.local
+     # - newsapp-svc-nodejs.newsapp-ns.svc.cluster.local
      port:
         number: 80
-        protocol: HTTP
+        protocol: http
         name: HTTP

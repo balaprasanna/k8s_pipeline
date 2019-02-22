@@ -6,7 +6,7 @@ metadata:
    namespace: newsapp-ns
 
 spec:
-   host: newsapp-svc-python.newsapp-ns.svc.cluster.local
+   host: newsapp-svc-python
    trafficPolicy:
       loadBalancer:
          simple: LEAST_CONN

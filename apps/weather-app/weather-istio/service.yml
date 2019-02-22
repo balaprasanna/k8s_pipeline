@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+   name: weather
+   labels:
+      app: weather
+
+spec:
+   replicas: 2
+   selector:
+      matchLabels:
+         app: weather
+   template:
+      metadata:
+         name: weather
+         labels:
+            app: weather
+      spec:
+         containers:
+            - name: weather
+              image: chukmunnlee/weather@sha256:9658a1a61485244d200c880f4ab5d491092f2efaee7f66e4cf29a608ac97d4b4
+              imagePullPolicy: Always
+              ports:
+              - containerPort: 3000
+              livenessProbe:
+                 httpGet:
+                    path: /health
+                    port: 3000
+---
+
+apiVersion: v1
+kind: Service
+
+metadata:
+   name: weather
+
+spec:
+   selector:
+      app: weather
+   ports:
+      - port: 8080
+        targetPort: 3000
+   type: NodePort
+
