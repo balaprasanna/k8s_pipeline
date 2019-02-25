@@ -1,0 +1,16 @@
+.border {
+  border-width: 2px;
+  border-color: white;
+  border-style: groove;
+  margin: 5px;
+  padding: 5px;
+}
+
+.App {
+  background-color: #282c34;
+  color: white;
+}
+
+.header {
+  text-align: center;
+}

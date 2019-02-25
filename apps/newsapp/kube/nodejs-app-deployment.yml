@@ -7,7 +7,7 @@ metadata:
     app: newsapp
     lang: nodejs
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: newsapp
@@ -18,7 +18,7 @@ spec:
         lang: nodejs
     spec:
       containers:
-        - image: balanus/newsapp:nodejs-v1
+        - image: balanus/newsapp:nodejs-v2
           name: newsapp
           env:
           - name: PORT

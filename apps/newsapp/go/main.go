@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"os"
 	"time"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -70,7 +69,18 @@ func GetTime(c *gin.Context) {
 
 //GetSource: Handler for /api/v1/source
 func GetSource(c *gin.Context) {
-	resp, err := http.Get(SOURCE_URL)
+
+	client :=  &http.Client{}
+
+	req, err := http.NewRequest("GET", SOURCE_URL, nil)
+	if err != nil {
+		c.AbortWithError(500, err)
+		return
+	}
+
+	req.Header.Set("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36")
+
+	resp, err := client.Do(req)
 	if err != nil {
 		c.AbortWithError(500, err)
 		return

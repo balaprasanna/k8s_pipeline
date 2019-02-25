@@ -32,7 +32,12 @@ var router = express.Router()
 
     //route GET /api/v1/source
     router.get('/source', (req, res) => {
-        request(SOURCE_URL, (error, response, body) => {
+	let config = {
+	"url": SOURCE_URL,
+	'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36'
+	}
+
+        request(config, (error, response, body) => {
             if (error) {
                 console.log('error:', error)
                 res.status(500).end()

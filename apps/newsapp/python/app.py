@@ -22,7 +22,11 @@ def sendSuccessResponse(resp_data, status=200, mimetype="application/json"):
     return Response(response=resp_data, status=status, mimetype=mimetype)
 
 def get(url):
-    resp = requests.get(url)
+    headers = {
+    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36'
+    }
+    resp = requests.get(url, headers=headers)
+    print(resp.text)
     if resp.ok:
         return resp.json()
 
