@@ -8,4 +8,4 @@ This repo contains three apps
 
 
 ## Tips:
-- [tips on play with kubernetes](tips)
+- [tips on play with kubernetes](./tips.md)
