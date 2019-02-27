@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class NewsDetails extends Component {
+export default class TaskDetails extends Component {
   
   constructor(props){
     super(props)
@@ -8,13 +8,13 @@ export default class NewsDetails extends Component {
   }
 
   componentWillMount(){
-    let URL = "http://0.0.0.0:5000/v1/sources/"
+    let URL = "http://localhost:8080/v1/task"
 
     fetch({
         url: URL,
         method: "GET",
     })
-    // .then((response) => response.json())
+    .then((response) => response.json())
     .then((data) => {
         console.log(">>> : ")
         console.log(data)
@@ -27,7 +27,7 @@ export default class NewsDetails extends Component {
   render() {
     return (
       <div className="border">
-        <h1> News Details </h1>
+        <h1> Task Details </h1>
       </div>
     )
   }

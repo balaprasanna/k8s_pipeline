@@ -5,3 +5,7 @@ This repo contains three apps
 # Apps
 1. [newsapp](apps/newsapp)
 2. [hello-go](apps/hello-go)
+
+
+## Tips:
+- [tips on play with kubernetes](tips)

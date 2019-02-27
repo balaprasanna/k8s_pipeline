@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import NewsListing from './components/NewsListing';
-import NewsDetails  from './components/NewsDetails';
+import TaskListing from './components/TaskListing';
+import TaskDetails  from './components/TaskDetails';
 import { Container , Row, Col } from "react-bootstrap";
 
 class App extends Component {
@@ -10,15 +10,15 @@ class App extends Component {
       <Container fluid={true} className="App">
         <Row>
             <Col> 
-               <h1 className="header border"> News App </h1>
+               <h1 className="header border"> Task App </h1>
             </Col>
         </Row>
         <Row>
             <Col xs={3}> 
-              <NewsListing> </NewsListing>
+              <TaskListing> </TaskListing>
             </Col>
             <Col xs={9}> 
-               <NewsDetails> </NewsDetails>
+               <TaskDetails> </TaskDetails>
             </Col>
         </Row>
       </Container>

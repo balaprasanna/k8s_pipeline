@@ -10,3 +10,9 @@ CREATE TABLE `taskstore`.`task` (
   `content` LONGTEXT NOT NULL,
   `status` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`));
+
+-- Insert tasks into taskstore
+
+INSERT INTO `taskstore`.`task` (name, type, content) VALUES ('demo1', 'url', 'http://www.google.com')
+INSERT INTO `taskstore`.`task` (name, type, content) VALUES ('demo2', 'url', 'http://www.google.com')
+INSERT INTO `taskstore`.`task` (name, type, content) VALUES ('demo3', 'url', 'http://www.google.com')
